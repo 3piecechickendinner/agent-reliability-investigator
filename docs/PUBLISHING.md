@@ -1,20 +1,21 @@
 # GitHub publication
 
-The implementation is committed locally. On 2026-10-12, both `gh repo create` and `POST /user/repos` were denied by GitHub with `Resource not accessible by integration`. The REST call returned HTTP 403. The connected account is `3piecechickendinner`; no remote repository was created.
+The private repository is provisioned at [3piecechickendinner/agent-reliability-investigator](https://github.com/3piecechickendinner/agent-reliability-investigator). GitHub confirms that the connected account has push permission.
 
-Create an empty private repository named `agent-reliability-investigator` in that account, without adding a README or other initial files. From this checkout, publish it with:
+This checkout has that repository configured as `origin`. Publish the committed local `main` branch and verify its remote commit with:
 
 ```bash
-git remote add origin https://github.com/3piecechickendinner/agent-reliability-investigator.git
 git push -u origin main
+git ls-remote origin refs/heads/main
 ```
 
-Creating a repository needs an account or connection that permits that action. The complete source and Git history are also supplied as a source archive and a Git bundle. To restore the bundle:
+The complete source and Git history are also supplied as a source archive and a Git bundle. To restore the bundle into a new checkout and configure the publication target:
 
 ```bash
 git clone agent-reliability-investigator.bundle agent-reliability-investigator
 cd agent-reliability-investigator
 git remote remove origin
 git remote add origin https://github.com/3piecechickendinner/agent-reliability-investigator.git
-git push -u origin main
 ```
+
+Then use the push and verification commands above. Provisioning the repository and restoring a local checkout are separate from a verified publication.

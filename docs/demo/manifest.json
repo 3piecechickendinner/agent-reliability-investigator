@@ -1,0 +1,88 @@
+{
+  "kind": "executed_scripted_fixture_demonstration",
+  "python_version": "3.12.14",
+  "source_run_id": "6d8c37da-2b71-449b-bac0-c5add800c503",
+  "fresh_execution_count": 6,
+  "commands": [
+    {
+      "command": [
+        "ari",
+        "run",
+        "--case",
+        "B",
+        "--output-dir",
+        "runs/demo",
+        "--format",
+        "json"
+      ],
+      "exit_status": 0
+    },
+    {
+      "command": [
+        "ari",
+        "replay",
+        "docs/demo/case-b.json",
+        "--attempts",
+        "2",
+        "--output-dir",
+        "runs/demo",
+        "--format",
+        "json"
+      ],
+      "exit_status": 0
+    },
+    {
+      "command": [
+        "ari",
+        "replay",
+        "docs/demo/case-b.json",
+        "--corrected",
+        "--output-dir",
+        "runs/demo",
+        "--format",
+        "json"
+      ],
+      "exit_status": 0
+    },
+    {
+      "command": [
+        "ari",
+        "export",
+        "docs/demo/case-b.json",
+        "--output",
+        "docs/demo/regression-b.json",
+        "--format",
+        "json"
+      ],
+      "exit_status": 0
+    },
+    {
+      "command": [
+        "ari",
+        "check",
+        "docs/demo/regression-b.json",
+        "--output-dir",
+        "runs/demo",
+        "--format",
+        "json"
+      ],
+      "exit_status": 1
+    },
+    {
+      "command": [
+        "ari",
+        "check",
+        "docs/demo/regression-b.json",
+        "--corrected",
+        "--output-dir",
+        "runs/demo",
+        "--format",
+        "json"
+      ],
+      "exit_status": 0
+    }
+  ],
+  "limitations": [
+    "Scripted fixtures only; no LLM calls or production reliability measurements."
+  ]
+}

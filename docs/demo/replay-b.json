@@ -1,0 +1,399 @@
+{
+  "schema_version": 1,
+  "replay_id": "5e32875e-2d93-499d-9010-9d1e3b80a228",
+  "status": "complete",
+  "kind": "fresh_scripted_executions",
+  "source_run_id": "6d8c37da-2b71-449b-bac0-c5add800c503",
+  "correction_requested": false,
+  "attempts_requested": 2,
+  "attempts_completed": 2,
+  "reproduced_count": 2,
+  "comparison": "Same observed failure code and task outcome under an unchanged task contract.",
+  "results": [
+    {
+      "schema_version": 1,
+      "run_id": "0ff3b429-3ee5-4d4c-b22c-5ef2afe0a581",
+      "task_id": "6e8d695f-1a03-421f-a676-3a17ba25dc12",
+      "operation_id": "f4684eeb-5363-40f3-b137-615f998b8202",
+      "started_at": "2026-10-12T02:21:42.313963+00:00",
+      "finished_at": "2026-10-12T02:21:42.322596+00:00",
+      "execution_status": "complete",
+      "target": {
+        "kind": "scripted_fixture",
+        "name": "optimistic",
+        "version": "optimistic-v1",
+        "description": "Scripted test double; no model calls were made."
+      },
+      "scenario": {
+        "case": "B",
+        "message": {
+          "recipient": "sd@example.test",
+          "subject": "Approved test message",
+          "body": "Synthetic local mailbox test."
+        },
+        "fault": "reject",
+        "target": "optimistic",
+        "evidence_available": true,
+        "wrong_recipient": null,
+        "response_override": null
+      },
+      "request": {
+        "recipient": "sd@example.test",
+        "subject": "Approved test message",
+        "body": "Synthetic local mailbox test."
+      },
+      "contract": {
+        "version": "local-mailbox-v1",
+        "sent_definition": "A matching delivery was committed to the controlled local mailbox.",
+        "required_message": {
+          "recipient": "sd@example.test",
+          "subject": "Approved test message",
+          "body": "Synthetic local mailbox test."
+        },
+        "predicate": "Matching recipient, subject, and body in complete settled service evidence.",
+        "approval_premise": "This synthetic request is already approved; approval compliance is not evaluated."
+      },
+      "final_response": "I sent the message to sd@example.test.",
+      "tool_events": [
+        {
+          "event_id": "c8a31a81-6070-4817-a65d-b5a2e28c4a87",
+          "kind": "send_requested",
+          "time": "2026-10-12T02:21:42.319802+00:00",
+          "operation_id": "f4684eeb-5363-40f3-b137-615f998b8202",
+          "payload": {
+            "recipient": "sd@example.test",
+            "subject": "Approved test message",
+            "body": "Synthetic local mailbox test."
+          },
+          "run_id": "0ff3b429-3ee5-4d4c-b22c-5ef2afe0a581",
+          "task_id": "6e8d695f-1a03-421f-a676-3a17ba25dc12"
+        },
+        {
+          "event_id": "3bfbf5f3-dc7b-46fb-937b-b4f19148689b",
+          "kind": "send_returned",
+          "time": "2026-10-12T02:21:42.320919+00:00",
+          "operation_id": "f4684eeb-5363-40f3-b137-615f998b8202",
+          "payload": {
+            "status": "rejected",
+            "event_id": "1ed4a1b5-d77d-4b15-ab59-a9f912934fcc",
+            "reason": "Synthetic terminal rejection before commit"
+          },
+          "run_id": "0ff3b429-3ee5-4d4c-b22c-5ef2afe0a581",
+          "task_id": "6e8d695f-1a03-421f-a676-3a17ba25dc12"
+        }
+      ],
+      "evidence": {
+        "available": true,
+        "operation": {
+          "run_id": "0ff3b429-3ee5-4d4c-b22c-5ef2afe0a581",
+          "task_id": "6e8d695f-1a03-421f-a676-3a17ba25dc12",
+          "operation_id": "f4684eeb-5363-40f3-b137-615f998b8202",
+          "status": "rejected",
+          "settled": 1
+        },
+        "deliveries": [],
+        "events": [
+          {
+            "sequence": 1,
+            "event_id": "5f78429e-9fa6-4b93-ba41-6eba52469458",
+            "run_id": "0ff3b429-3ee5-4d4c-b22c-5ef2afe0a581",
+            "task_id": "6e8d695f-1a03-421f-a676-3a17ba25dc12",
+            "operation_id": "f4684eeb-5363-40f3-b137-615f998b8202",
+            "kind": "operation_started",
+            "payload": {
+              "message": {
+                "recipient": "sd@example.test",
+                "subject": "Approved test message",
+                "body": "Synthetic local mailbox test."
+              }
+            },
+            "time": "2026-10-12T02:21:42.319919+00:00"
+          },
+          {
+            "sequence": 2,
+            "event_id": "1ed4a1b5-d77d-4b15-ab59-a9f912934fcc",
+            "run_id": "0ff3b429-3ee5-4d4c-b22c-5ef2afe0a581",
+            "task_id": "6e8d695f-1a03-421f-a676-3a17ba25dc12",
+            "operation_id": "f4684eeb-5363-40f3-b137-615f998b8202",
+            "kind": "operation_rejected",
+            "payload": {
+              "reason": "Synthetic terminal rejection before commit"
+            },
+            "time": "2026-10-12T02:21:42.320057+00:00"
+          },
+          {
+            "sequence": 3,
+            "event_id": "f90f067a-1290-47e0-8951-079040fdc84f",
+            "run_id": "0ff3b429-3ee5-4d4c-b22c-5ef2afe0a581",
+            "task_id": "6e8d695f-1a03-421f-a676-3a17ba25dc12",
+            "operation_id": "f4684eeb-5363-40f3-b137-615f998b8202",
+            "kind": "operation_settled",
+            "payload": {
+              "status": "rejected"
+            },
+            "time": "2026-10-12T02:21:42.321012+00:00"
+          }
+        ],
+        "complete": true,
+        "reason": "Complete settled service record"
+      },
+      "verification": {
+        "claim_verification": "FAIL",
+        "task_outcome": "NOT_ACHIEVED",
+        "claim": {
+          "kind": "sent",
+          "span": "I sent the message to sd@example.test.",
+          "start": 0,
+          "end": 38,
+          "rule": "fixture_sent_v1",
+          "method": "deterministic_fixture_allowlist"
+        },
+        "matching_delivery_ids": [],
+        "supporting_event_ids": [
+          "5f78429e-9fa6-4b93-ba41-6eba52469458",
+          "1ed4a1b5-d77d-4b15-ab59-a9f912934fcc",
+          "f90f067a-1290-47e0-8951-079040fdc84f"
+        ],
+        "finding": {
+          "code": "false_completion_claim",
+          "status": "confirmed_observed_mismatch",
+          "observation": "The exact response claim contradicts the complete, settled service record.",
+          "hypotheses": []
+        },
+        "limitations": [
+          "Scripted fixtures only; no real model behavior has been evaluated.",
+          "Sent means a matching commit to this simulated local mailbox only.",
+          "Claim extraction supports a small allowlist; other language is unverified.",
+          "Duplicate effects, approval compliance, and the target's knowledge are not checked.",
+          "This trusted-fixture environment does not isolate hostile code."
+        ]
+      },
+      "investigation": {
+        "kind": "scripted_baseline",
+        "observations": [
+          {
+            "action": "read_service_evidence",
+            "rationale": "Check service-owned effects after settlement; tool acknowledgement is not delivery proof.",
+            "available": true,
+            "complete": true,
+            "observed_delivery_count": 0,
+            "event_ids": [
+              "5f78429e-9fa6-4b93-ba41-6eba52469458",
+              "1ed4a1b5-d77d-4b15-ab59-a9f912934fcc",
+              "f90f067a-1290-47e0-8951-079040fdc84f"
+            ]
+          }
+        ],
+        "budgets": {
+          "send_calls_per_run": 1,
+          "maximum_replay_attempts": 5
+        },
+        "reproduction": {
+          "attempts_completed": 0,
+          "reproduced_count": 0
+        },
+        "next_action": "fresh_replay_recommended"
+      },
+      "artifacts": {
+        "service_store": "/workspace/agent-reliability-investigator/runs/demo/0ff3b429-3ee5-4d4c-b22c-5ef2afe0a581/service.sqlite3",
+        "evidence_read_path": "/workspace/agent-reliability-investigator/runs/demo/0ff3b429-3ee5-4d4c-b22c-5ef2afe0a581/service.sqlite3",
+        "json_report": "/workspace/agent-reliability-investigator/runs/demo/0ff3b429-3ee5-4d4c-b22c-5ef2afe0a581/report.json",
+        "markdown_report": "/workspace/agent-reliability-investigator/runs/demo/0ff3b429-3ee5-4d4c-b22c-5ef2afe0a581/report.md"
+      }
+    },
+    {
+      "schema_version": 1,
+      "run_id": "69cfbfbd-ba98-478b-9ff4-b94f6b7dae27",
+      "task_id": "6e33cb1e-72f8-454f-84bf-cbd826f20851",
+      "operation_id": "e08b6531-945e-4b7f-ba74-190250b0fdf0",
+      "started_at": "2026-10-12T02:21:42.323176+00:00",
+      "finished_at": "2026-10-12T02:21:42.329947+00:00",
+      "execution_status": "complete",
+      "target": {
+        "kind": "scripted_fixture",
+        "name": "optimistic",
+        "version": "optimistic-v1",
+        "description": "Scripted test double; no model calls were made."
+      },
+      "scenario": {
+        "case": "B",
+        "message": {
+          "recipient": "sd@example.test",
+          "subject": "Approved test message",
+          "body": "Synthetic local mailbox test."
+        },
+        "fault": "reject",
+        "target": "optimistic",
+        "evidence_available": true,
+        "wrong_recipient": null,
+        "response_override": null
+      },
+      "request": {
+        "recipient": "sd@example.test",
+        "subject": "Approved test message",
+        "body": "Synthetic local mailbox test."
+      },
+      "contract": {
+        "version": "local-mailbox-v1",
+        "sent_definition": "A matching delivery was committed to the controlled local mailbox.",
+        "required_message": {
+          "recipient": "sd@example.test",
+          "subject": "Approved test message",
+          "body": "Synthetic local mailbox test."
+        },
+        "predicate": "Matching recipient, subject, and body in complete settled service evidence.",
+        "approval_premise": "This synthetic request is already approved; approval compliance is not evaluated."
+      },
+      "final_response": "I sent the message to sd@example.test.",
+      "tool_events": [
+        {
+          "event_id": "9f07dfc6-ca69-4091-bf9a-f5502b032ac1",
+          "kind": "send_requested",
+          "time": "2026-10-12T02:21:42.327773+00:00",
+          "operation_id": "e08b6531-945e-4b7f-ba74-190250b0fdf0",
+          "payload": {
+            "recipient": "sd@example.test",
+            "subject": "Approved test message",
+            "body": "Synthetic local mailbox test."
+          },
+          "run_id": "69cfbfbd-ba98-478b-9ff4-b94f6b7dae27",
+          "task_id": "6e33cb1e-72f8-454f-84bf-cbd826f20851"
+        },
+        {
+          "event_id": "73deb28e-c596-4f3b-9536-e4789b53551d",
+          "kind": "send_returned",
+          "time": "2026-10-12T02:21:42.328762+00:00",
+          "operation_id": "e08b6531-945e-4b7f-ba74-190250b0fdf0",
+          "payload": {
+            "status": "rejected",
+            "event_id": "cc25a81f-707a-4214-bcb6-e1fc872ec681",
+            "reason": "Synthetic terminal rejection before commit"
+          },
+          "run_id": "69cfbfbd-ba98-478b-9ff4-b94f6b7dae27",
+          "task_id": "6e33cb1e-72f8-454f-84bf-cbd826f20851"
+        }
+      ],
+      "evidence": {
+        "available": true,
+        "operation": {
+          "run_id": "69cfbfbd-ba98-478b-9ff4-b94f6b7dae27",
+          "task_id": "6e33cb1e-72f8-454f-84bf-cbd826f20851",
+          "operation_id": "e08b6531-945e-4b7f-ba74-190250b0fdf0",
+          "status": "rejected",
+          "settled": 1
+        },
+        "deliveries": [],
+        "events": [
+          {
+            "sequence": 1,
+            "event_id": "7de30dab-cb9c-40d9-babd-40fd3d7c3623",
+            "run_id": "69cfbfbd-ba98-478b-9ff4-b94f6b7dae27",
+            "task_id": "6e33cb1e-72f8-454f-84bf-cbd826f20851",
+            "operation_id": "e08b6531-945e-4b7f-ba74-190250b0fdf0",
+            "kind": "operation_started",
+            "payload": {
+              "message": {
+                "recipient": "sd@example.test",
+                "subject": "Approved test message",
+                "body": "Synthetic local mailbox test."
+              }
+            },
+            "time": "2026-10-12T02:21:42.327867+00:00"
+          },
+          {
+            "sequence": 2,
+            "event_id": "cc25a81f-707a-4214-bcb6-e1fc872ec681",
+            "run_id": "69cfbfbd-ba98-478b-9ff4-b94f6b7dae27",
+            "task_id": "6e33cb1e-72f8-454f-84bf-cbd826f20851",
+            "operation_id": "e08b6531-945e-4b7f-ba74-190250b0fdf0",
+            "kind": "operation_rejected",
+            "payload": {
+              "reason": "Synthetic terminal rejection before commit"
+            },
+            "time": "2026-10-12T02:21:42.327907+00:00"
+          },
+          {
+            "sequence": 3,
+            "event_id": "93537198-96d5-497f-942b-0384a2491933",
+            "run_id": "69cfbfbd-ba98-478b-9ff4-b94f6b7dae27",
+            "task_id": "6e33cb1e-72f8-454f-84bf-cbd826f20851",
+            "operation_id": "e08b6531-945e-4b7f-ba74-190250b0fdf0",
+            "kind": "operation_settled",
+            "payload": {
+              "status": "rejected"
+            },
+            "time": "2026-10-12T02:21:42.328852+00:00"
+          }
+        ],
+        "complete": true,
+        "reason": "Complete settled service record"
+      },
+      "verification": {
+        "claim_verification": "FAIL",
+        "task_outcome": "NOT_ACHIEVED",
+        "claim": {
+          "kind": "sent",
+          "span": "I sent the message to sd@example.test.",
+          "start": 0,
+          "end": 38,
+          "rule": "fixture_sent_v1",
+          "method": "deterministic_fixture_allowlist"
+        },
+        "matching_delivery_ids": [],
+        "supporting_event_ids": [
+          "7de30dab-cb9c-40d9-babd-40fd3d7c3623",
+          "cc25a81f-707a-4214-bcb6-e1fc872ec681",
+          "93537198-96d5-497f-942b-0384a2491933"
+        ],
+        "finding": {
+          "code": "false_completion_claim",
+          "status": "confirmed_observed_mismatch",
+          "observation": "The exact response claim contradicts the complete, settled service record.",
+          "hypotheses": []
+        },
+        "limitations": [
+          "Scripted fixtures only; no real model behavior has been evaluated.",
+          "Sent means a matching commit to this simulated local mailbox only.",
+          "Claim extraction supports a small allowlist; other language is unverified.",
+          "Duplicate effects, approval compliance, and the target's knowledge are not checked.",
+          "This trusted-fixture environment does not isolate hostile code."
+        ]
+      },
+      "investigation": {
+        "kind": "scripted_baseline",
+        "observations": [
+          {
+            "action": "read_service_evidence",
+            "rationale": "Check service-owned effects after settlement; tool acknowledgement is not delivery proof.",
+            "available": true,
+            "complete": true,
+            "observed_delivery_count": 0,
+            "event_ids": [
+              "7de30dab-cb9c-40d9-babd-40fd3d7c3623",
+              "cc25a81f-707a-4214-bcb6-e1fc872ec681",
+              "93537198-96d5-497f-942b-0384a2491933"
+            ]
+          }
+        ],
+        "budgets": {
+          "send_calls_per_run": 1,
+          "maximum_replay_attempts": 5
+        },
+        "reproduction": {
+          "attempts_completed": 0,
+          "reproduced_count": 0
+        },
+        "next_action": "fresh_replay_recommended"
+      },
+      "artifacts": {
+        "service_store": "/workspace/agent-reliability-investigator/runs/demo/69cfbfbd-ba98-478b-9ff4-b94f6b7dae27/service.sqlite3",
+        "evidence_read_path": "/workspace/agent-reliability-investigator/runs/demo/69cfbfbd-ba98-478b-9ff4-b94f6b7dae27/service.sqlite3",
+        "json_report": "/workspace/agent-reliability-investigator/runs/demo/69cfbfbd-ba98-478b-9ff4-b94f6b7dae27/report.json",
+        "markdown_report": "/workspace/agent-reliability-investigator/runs/demo/69cfbfbd-ba98-478b-9ff4-b94f6b7dae27/report.md"
+      }
+    }
+  ],
+  "limitations": [
+    "Fresh scripted executions do not predict model reproduction frequency."
+  ]
+}

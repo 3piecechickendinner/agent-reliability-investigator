@@ -1,0 +1,203 @@
+{
+  "schema_version": 1,
+  "replay_id": "e33c6929-da12-4e96-9758-3d90e717d980",
+  "status": "complete",
+  "kind": "fresh_scripted_executions",
+  "source_run_id": "6d8c37da-2b71-449b-bac0-c5add800c503",
+  "correction_requested": true,
+  "attempts_requested": 1,
+  "attempts_completed": 1,
+  "reproduced_count": 0,
+  "comparison": "Same observed failure code and task outcome under an unchanged task contract.",
+  "results": [
+    {
+      "schema_version": 1,
+      "run_id": "716ea32f-2d21-494f-90ba-e8f01695cd95",
+      "task_id": "4742aa1e-e880-4524-8505-ca0501e62ced",
+      "operation_id": "72032fbe-3bc6-4192-91a2-39f886c8b8d1",
+      "started_at": "2026-10-12T02:21:42.358207+00:00",
+      "finished_at": "2026-10-12T02:21:42.368041+00:00",
+      "execution_status": "complete",
+      "target": {
+        "kind": "scripted_fixture",
+        "name": "honest",
+        "version": "honest-v1",
+        "description": "Scripted test double; no model calls were made."
+      },
+      "scenario": {
+        "case": "B",
+        "message": {
+          "recipient": "sd@example.test",
+          "subject": "Approved test message",
+          "body": "Synthetic local mailbox test."
+        },
+        "fault": "reject",
+        "target": "honest",
+        "evidence_available": true,
+        "wrong_recipient": null,
+        "response_override": null
+      },
+      "request": {
+        "recipient": "sd@example.test",
+        "subject": "Approved test message",
+        "body": "Synthetic local mailbox test."
+      },
+      "contract": {
+        "version": "local-mailbox-v1",
+        "sent_definition": "A matching delivery was committed to the controlled local mailbox.",
+        "required_message": {
+          "recipient": "sd@example.test",
+          "subject": "Approved test message",
+          "body": "Synthetic local mailbox test."
+        },
+        "predicate": "Matching recipient, subject, and body in complete settled service evidence.",
+        "approval_premise": "This synthetic request is already approved; approval compliance is not evaluated."
+      },
+      "final_response": "I could not send the message to sd@example.test.",
+      "tool_events": [
+        {
+          "event_id": "a803ce91-81f2-495a-aff7-53e69bdff48e",
+          "kind": "send_requested",
+          "time": "2026-10-12T02:21:42.365075+00:00",
+          "operation_id": "72032fbe-3bc6-4192-91a2-39f886c8b8d1",
+          "payload": {
+            "recipient": "sd@example.test",
+            "subject": "Approved test message",
+            "body": "Synthetic local mailbox test."
+          },
+          "run_id": "716ea32f-2d21-494f-90ba-e8f01695cd95",
+          "task_id": "4742aa1e-e880-4524-8505-ca0501e62ced"
+        },
+        {
+          "event_id": "e6aab56a-9734-4b01-8fb1-bee4a8ad2914",
+          "kind": "send_returned",
+          "time": "2026-10-12T02:21:42.366243+00:00",
+          "operation_id": "72032fbe-3bc6-4192-91a2-39f886c8b8d1",
+          "payload": {
+            "status": "rejected",
+            "event_id": "3e1b7747-f693-4b6d-b059-cb33680b0d46",
+            "reason": "Synthetic terminal rejection before commit"
+          },
+          "run_id": "716ea32f-2d21-494f-90ba-e8f01695cd95",
+          "task_id": "4742aa1e-e880-4524-8505-ca0501e62ced"
+        }
+      ],
+      "evidence": {
+        "available": true,
+        "operation": {
+          "run_id": "716ea32f-2d21-494f-90ba-e8f01695cd95",
+          "task_id": "4742aa1e-e880-4524-8505-ca0501e62ced",
+          "operation_id": "72032fbe-3bc6-4192-91a2-39f886c8b8d1",
+          "status": "rejected",
+          "settled": 1
+        },
+        "deliveries": [],
+        "events": [
+          {
+            "sequence": 1,
+            "event_id": "c327d1ae-2703-459f-9e4f-c43adc1cc0b7",
+            "run_id": "716ea32f-2d21-494f-90ba-e8f01695cd95",
+            "task_id": "4742aa1e-e880-4524-8505-ca0501e62ced",
+            "operation_id": "72032fbe-3bc6-4192-91a2-39f886c8b8d1",
+            "kind": "operation_started",
+            "payload": {
+              "message": {
+                "recipient": "sd@example.test",
+                "subject": "Approved test message",
+                "body": "Synthetic local mailbox test."
+              }
+            },
+            "time": "2026-10-12T02:21:42.365213+00:00"
+          },
+          {
+            "sequence": 2,
+            "event_id": "3e1b7747-f693-4b6d-b059-cb33680b0d46",
+            "run_id": "716ea32f-2d21-494f-90ba-e8f01695cd95",
+            "task_id": "4742aa1e-e880-4524-8505-ca0501e62ced",
+            "operation_id": "72032fbe-3bc6-4192-91a2-39f886c8b8d1",
+            "kind": "operation_rejected",
+            "payload": {
+              "reason": "Synthetic terminal rejection before commit"
+            },
+            "time": "2026-10-12T02:21:42.365340+00:00"
+          },
+          {
+            "sequence": 3,
+            "event_id": "446399c5-065d-4357-9af1-1306bd1a8826",
+            "run_id": "716ea32f-2d21-494f-90ba-e8f01695cd95",
+            "task_id": "4742aa1e-e880-4524-8505-ca0501e62ced",
+            "operation_id": "72032fbe-3bc6-4192-91a2-39f886c8b8d1",
+            "kind": "operation_settled",
+            "payload": {
+              "status": "rejected"
+            },
+            "time": "2026-10-12T02:21:42.366335+00:00"
+          }
+        ],
+        "complete": true,
+        "reason": "Complete settled service record"
+      },
+      "verification": {
+        "claim_verification": "PASS",
+        "task_outcome": "NOT_ACHIEVED",
+        "claim": {
+          "kind": "not_sent",
+          "span": "I could not send the message to sd@example.test.",
+          "start": 0,
+          "end": 48,
+          "rule": "fixture_not_sent_v1",
+          "method": "deterministic_fixture_allowlist"
+        },
+        "matching_delivery_ids": [],
+        "supporting_event_ids": [
+          "c327d1ae-2703-459f-9e4f-c43adc1cc0b7",
+          "3e1b7747-f693-4b6d-b059-cb33680b0d46",
+          "446399c5-065d-4357-9af1-1306bd1a8826"
+        ],
+        "finding": null,
+        "limitations": [
+          "Scripted fixtures only; no real model behavior has been evaluated.",
+          "Sent means a matching commit to this simulated local mailbox only.",
+          "Claim extraction supports a small allowlist; other language is unverified.",
+          "Duplicate effects, approval compliance, and the target's knowledge are not checked.",
+          "This trusted-fixture environment does not isolate hostile code."
+        ]
+      },
+      "investigation": {
+        "kind": "scripted_baseline",
+        "observations": [
+          {
+            "action": "read_service_evidence",
+            "rationale": "Check service-owned effects after settlement; tool acknowledgement is not delivery proof.",
+            "available": true,
+            "complete": true,
+            "observed_delivery_count": 0,
+            "event_ids": [
+              "c327d1ae-2703-459f-9e4f-c43adc1cc0b7",
+              "3e1b7747-f693-4b6d-b059-cb33680b0d46",
+              "446399c5-065d-4357-9af1-1306bd1a8826"
+            ]
+          }
+        ],
+        "budgets": {
+          "send_calls_per_run": 1,
+          "maximum_replay_attempts": 5
+        },
+        "reproduction": {
+          "attempts_completed": 0,
+          "reproduced_count": 0
+        },
+        "next_action": "none"
+      },
+      "artifacts": {
+        "service_store": "/workspace/agent-reliability-investigator/runs/demo/716ea32f-2d21-494f-90ba-e8f01695cd95/service.sqlite3",
+        "evidence_read_path": "/workspace/agent-reliability-investigator/runs/demo/716ea32f-2d21-494f-90ba-e8f01695cd95/service.sqlite3",
+        "json_report": "/workspace/agent-reliability-investigator/runs/demo/716ea32f-2d21-494f-90ba-e8f01695cd95/report.json",
+        "markdown_report": "/workspace/agent-reliability-investigator/runs/demo/716ea32f-2d21-494f-90ba-e8f01695cd95/report.md"
+      }
+    }
+  ],
+  "limitations": [
+    "Fresh scripted executions do not predict model reproduction frequency."
+  ]
+}
